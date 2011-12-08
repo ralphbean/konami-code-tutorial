@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Oh hai</title>
+
+    <style type="text/css">
+      .real-big {
+        position: absolute;
+        width:100%;
+        height:100%;
+        z-index:999999;
+      }
+      .real-big img {
+        width:100%;
+        height:100%;
+      }
+    </style>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var keys = [];
+        var code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+
+        $("#monster-container").hide();
+
+        $(document).keydown(function(keyEvent) {
+          keys.push(keyEvent.keyCode);
+
+          if ( keys.length > code.length ) { keys.shift(); }
+
+          if ( keys.toString() == code.toString() ) {
+            $('#monster-container').slideDown('slow');
+          }
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+
+    <div id="monster-container" class="real-big">
+      <img src="images/cookie_monster.gif" >
+    </div>
+
+    <h1>Hai thar!</h1>
+    <p>Try typing the 'konami code':</p>
+    <p><strong>Up-Up-Down-Down-Left-Right-Left-Right-b-a-&lt;Enter&gt;</strong></p>
+
+  </body>
+</html>
+
